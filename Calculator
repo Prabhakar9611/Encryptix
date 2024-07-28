@@ -1,0 +1,40 @@
+import os
+def add(a,b):
+    return a+b
+def sub(a,b):
+    return a-b
+def mul(a,b):
+    return a*b
+def div(a,b):
+    return a/b
+def mod(a,b):
+    return a%b
+dict={
+    "+":add,
+    "-":sub,
+    "*":mul,
+    "/":div,
+    "%":mod
+}
+def Calculator():
+    FirstNumber=int(input("Enter First Number:"))
+    flag=True
+    while flag:
+        for i in dict:
+            print(i)
+        Operator=input("Enter Operator:")
+        NextNumber=int(input("Enter Next Number:"))
+        function=dict[Operator]
+        result=function(FirstNumber,NextNumber)
+        print(f"{FirstNumber}{Operator}{NextNumber}={result}")
+        Continue=input(f"Do you want to continue with {result} Enter 'y' Or Press 'n' for start beginning Or Press 'x' for exit").lower()
+        if Continue=="y":
+            FirstNumber=result
+        elif Continue=="n":
+            flag=False
+            os.system('cls')
+            Calculator()
+        else:
+            flag=False
+            print("Bye")
+Calculator()
