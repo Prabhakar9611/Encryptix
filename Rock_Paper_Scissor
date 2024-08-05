@@ -1,0 +1,37 @@
+import random
+UserScore=0
+ComputerScore=0
+while True:
+    UserChoice=int(input("Enter Your Choice:\n0 for Rock\n1 for Paper\n2 for Scissor : "))
+    if UserChoice>=3:
+        print("Invalid Number, You Lose")
+        ComputerScore+=1
+        print("Your Score = ", UserScore)
+        print("ComputerScore = ", ComputerScore)
+        Continue = input("Do want to Continue?\npress 'y' for Continue").lower()
+        if Continue != 'y':
+            break
+    else:
+        ComputerChoice=random.randint(0,2)
+        print("ComputerChoice = ",ComputerChoice)
+        if UserChoice==0 and ComputerChoice==2:
+            print("You Won")
+            UserScore+=1
+        elif UserChoice==2 and ComputerChoice==0:
+            print("You Lose")
+            ComputerScore += 1
+        elif UserChoice < ComputerChoice:
+            print("You Lose")
+            ComputerScore += 1
+        elif UserChoice>ComputerChoice:
+            print("You Won")
+            UserScore += 1
+        elif UserChoice==ComputerChoice:
+            print("Draw")
+            UserScore += 1
+            ComputerScore += 1
+        print("Your Score = ",UserScore)
+        print("ComputerScore = ",ComputerScore)
+        Continue=input("Do want to Continue?\npress 'y' for Continue").lower()
+        if Continue!='y':
+            break
